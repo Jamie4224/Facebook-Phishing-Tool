@@ -2,6 +2,8 @@
 
 Ever wanted to gather poeple's passwords? Now you can! Poeple can register and login here but their data will be saved in a MySQL database!
 
+
+
 ###Installation:
 1. Download source from github
 2. Extract the zip file
@@ -11,10 +13,12 @@ Ever wanted to gather poeple's passwords? Now you can! Poeple can register and l
 6. Upload the tool to your webserver
 7. Done
 
+
 ###Requirements:
 - PHP 5 or 7
 - A MySQL database
 - A webserver
+
 
 ###Recommended:
 - PHP 7
@@ -24,4 +28,4 @@ Ever wanted to gather poeple's passwords? Now you can! Poeple can register and l
 ###Wiki:
 Coming soon!
 
-##THIS HAS BEEN TESTED WITH PHP 7
+###THIS HAS BEEN TESTED WITH PHP 7
