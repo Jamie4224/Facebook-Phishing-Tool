@@ -1,4 +1,7 @@
 <?php
+$apppath = dirname(__FILE__);
+require("$apppath/../main.boot.php");
+
 // DO NOT TOUCH
 function getIp() {
 	$ip = $_SERVER['REMOTE_ADDR'];

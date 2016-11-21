@@ -5,6 +5,7 @@ $apppath = dirname(__FILE__);
 // Require main class
 require("$apppath/includes/main.boot.php");
 
+$FBPhish->themecheck();
 $content = $FBPhish->loadPage("home");
 
 // Credits

