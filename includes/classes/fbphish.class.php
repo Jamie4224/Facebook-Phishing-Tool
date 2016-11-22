@@ -62,14 +62,14 @@ class FBPhish{
 		$this->themecheck_results_im = implode($this->themecheck_results, ';');
 
 		if(strpos($this->themecheck_results_im, "Missing") != false){
-			echo "Your theme is invalid:";
+			echo "<br>Your theme is invalid:";
 			foreach($this->themecheck_results as $this->themecheck_results_i){
 				echo $this->themecheck_results_i;
 			}
 			die();
 		}else{
 			if($debug == "true"){
-				echo "Your theme is valid:";
+				echo "<br>Your theme is valid:";
 				foreach($this->themecheck_results as $this->themecheck_results_i){
 					echo $this->themecheck_results_i;
 				}

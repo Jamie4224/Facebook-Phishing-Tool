@@ -21,4 +21,20 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
 
 require_once(__DIR__ . "/../config.inc.php");
 
-// To be made
+if(!function_exists("debug")){
+	function debug() {
+		global $debug;
+
+		if($debug == "true"){
+			// Turn on error reporting
+			echo "<br>Debug:";
+		    error_reporting(-1);
+		    ini_set("display_errors", 'On');
+		}else{
+			// Turn off error reporting
+			error_reporting(0);
+   			ini_set("display_errors", 0);
+		}	
+	}
+	debug();
+}
