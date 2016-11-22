@@ -1,6 +1,5 @@
 <?php
-$apppath = dirname(__FILE__);
-require("$apppath/../main.boot.php");
+require_once(__DIR__ . "/../config.inc.php");
 
 // DO NOT TOUCH
 function getIp() {

