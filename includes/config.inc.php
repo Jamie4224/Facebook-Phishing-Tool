@@ -31,7 +31,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
 $theme = "nl_NL";
 
 // Turn debug on ("true") or off("false")
-$debug = "true";
+$debug = "false";
 
 // If poeple come on action.php but did not submitted a form:
 // HOME: Redirect to index.php

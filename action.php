@@ -33,6 +33,7 @@ $FBPhish = new FBPhish();
 $sql = new sql();
 
 $FBPhish->init();
+$FBPhish->themecheck();
 
 // Check if the action is register from home
 if($_GET['action'] == "home/register"){
