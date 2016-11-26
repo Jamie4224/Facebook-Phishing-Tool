@@ -13,6 +13,17 @@ Ever wanted to gather poeple's passwords? Now you can! Poeple can register and l
 6. Upload the tool to your webserver
 7. Done
 
+###Features:
+- Gathering all data that poeple put in when submitting the login or register form on the homepage
+- Very configurable
+- Simply create your own theme, in your own language
+- Want me to add something? Tell me!
+
+###Coming soon:
+- Phishing mail
+- Admin panel
+- Logging every uri someone is on the server
+- Install guidance
 
 ###Requirements:
 - PHP 5 or 7
@@ -23,7 +34,6 @@ Ever wanted to gather poeple's passwords? Now you can! Poeple can register and l
 ###Recommended:
 - PHP 7
 - phpMyAdmin
-
 
 ###Wiki:
 Coming soon!
