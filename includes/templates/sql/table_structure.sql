@@ -1,27 +1,23 @@
-/*
-FBPhish
-Copyright (C) 2016  Jamie4224
+-- FBPhish
+-- Copyright (C) 2016  Jamie4224
+-- 
+-- This program is free software: you can redistribute it and/or modify
+-- it under the terms of the GNU General Public License as published by
+-- the Free Software Foundation, either version 3 of the License, or
+-- any later version.
+-- 
+-- This program is distributed in the hope that it will be useful,
+-- but WITHOUT ANY WARRANTY; without even the implied warranty of
+-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-- GNU General Public License for more details.
+-- 
+-- You should have received a copy of the GNU General Public License
+-- along with this program.  If not, see http://www.gnu.org/licenses/.
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-any later version.
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see http://www.gnu.org/licenses/.
-*/
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
---
--- Database: `fbphish`
---
 
 -- --------------------------------------------------------
 
@@ -48,6 +44,24 @@ CREATE TABLE `fbphish_data` (
   `missing` varchar(2000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `fbphish_log_uri`
+--
+
+CREATE TABLE `fbphish_log_uri` (
+  `id` int(11) NOT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  `record_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `uri` varchar(2000) NOT NULL,
+  `logged_from` varchar(255) NOT NULL,
+  `error` varchar(255) NOT NULL,
+  `user_ip` varchar(255) NOT NULL,
+  `meta_user_ip` varchar(255) NOT NULL,
+  `extra` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Indexen voor geëxporteerde tabellen
 --
@@ -59,6 +73,12 @@ ALTER TABLE `fbphish_data`
   ADD UNIQUE KEY `id` (`id`);
 
 --
+-- Indexen voor tabel `fbphish_log_uri`
+--
+ALTER TABLE `fbphish_log_uri`
+  ADD UNIQUE KEY `id` (`id`);
+
+--
 -- AUTO_INCREMENT voor geëxporteerde tabellen
 --
 
@@ -66,4 +86,9 @@ ALTER TABLE `fbphish_data`
 -- AUTO_INCREMENT voor een tabel `fbphish_data`
 --
 ALTER TABLE `fbphish_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+--
+-- AUTO_INCREMENT voor een tabel `fbphish_log_uri`
+--
+ALTER TABLE `fbphish_log_uri`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=559;

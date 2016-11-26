@@ -22,11 +22,11 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
 require_once(__DIR__ . "/../config.inc.php");
 
 class sql{
-	private $fbphish_database_conn;
-	private $fbphish_database_conn_err;
-	private $query_arg1;
-	private $query;
-	private $success;
+	protected $fbphish_database_conn;
+	protected $fbphish_database_conn_err;
+	protected $query_arg1;
+	protected $query;
+	protected $success;
 
 	public function db_connect() {
 		global $fbphish_sql_host;

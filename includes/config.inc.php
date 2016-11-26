@@ -31,7 +31,12 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
 $theme = "nl_NL";
 
 // Turn debug on ("true") or off("false")
+// Notice: The debug mode overrides some of the settings initialized here.
 $debug = "false";
+
+// Set the base url of the website without https:// or www.
+// Exmaple: $baseurl = "fbphish.com";
+$baseurl = "fbphish.com";
 
 // If poeple come on action.php but did not submitted a form:
 // HOME: Redirect to index.php
@@ -61,6 +66,14 @@ $config_option__302 = "home";
 // NOT HOME, FACEBOOK OR SHOW: Then redirect to the entered link (example: if you enter google.com in the var it will redirect to goole)
 $config_option__451 = "show";
 
+// Config option 461:
+// If the system encounters an hhtpd error:
+// HOME: Redirect to index.php
+// FACEBOOK: Redirect to facebook.com
+// SHOW: Show the error page defined in the theme.
+// NOT HOME, FACEBOOK OR SHOW: Then redirect to the entered link (example: if you enter google.com in the var it will redirect to goole)
+// Notice: if you want to get the error code and info you should turn debug mode on.
+$config_option__460 = "show";
 
 // Database settings
 $fbphish_sql_host = "localhost";
