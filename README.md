@@ -32,6 +32,7 @@ Ever wanted to gather poeple's passwords? Now you can! Poeple can register and l
 
 
 ###Recommended:
+- Apache webserver
 - PHP 7
 - phpMyAdmin
 
