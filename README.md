@@ -17,12 +17,12 @@ Ever wanted to gather poeple's passwords? Now you can! Poeple can register and l
 - Gathering all data that poeple put in when submitting the login or register form on the homepage
 - Very configurable
 - Simply create your own theme, in your own language
+- Log every uri someone goes on the server!
 - Want me to add something? Tell me!
 
 ###Coming soon:
 - Phishing mail
 - Admin panel
-- Logging every uri someone is on the server
 - Install guidance
 
 ###Requirements:
