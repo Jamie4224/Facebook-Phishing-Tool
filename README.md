@@ -23,6 +23,7 @@ Ever wanted to gather poeple's passwords? Now you can! Poeple can register and l
 ###Coming soon:
 - Phishing mail
 - Admin panel
+- Automatically create a theme from facebook
 - Install guidance
 
 ###Requirements:
