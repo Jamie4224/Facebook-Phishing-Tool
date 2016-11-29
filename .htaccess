@@ -1,0 +1,38 @@
+# FBPhish
+# Copyright (C) 2016  Jamie4224
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see http:#www.gnu.org/licenses/.
+
+
+
+RewriteEngine on
+
+
+ErrorDocument 400 /main.syst.php?dir=error&msg=400
+ErrorDocument 401 /main.syst.php?dir=error&msg=401
+ErrorDocument 403 /main.syst.php?dir=error&msg=403
+ErrorDocument 404 /main.syst.php?dir=error&msg=404
+ErrorDocument 405 /main.syst.php?dir=error&msg=405
+ErrorDocument 407 /main.syst.php?dir=error&msg=407
+ErrorDocument 408 /main.syst.php?dir=error&msg=408
+ErrorDocument 409 /main.syst.php?dir=error&msg=409
+ErrorDocument 410 /main.syst.php?dir=error&msg=410
+ErrorDocument 413 /main.syst.php?dir=error&msg=413
+ErrorDocument 414 /main.syst.php?dir=error&msg=414
+ErrorDocument 500 /main.syst.php?dir=error&msg=500
+ErrorDocument 502 /main.syst.php?dir=error&msg=502
+ErrorDocument 503 /main.syst.php?dir=error&msg=503
+ErrorDocument 504 /main.syst.php?dir=error&msg=504
+ErrorDocument 505 /main.syst.php?dir=error&msg=505
+ErrorDocument 508 /main.syst.php?dir=error&msg=508
