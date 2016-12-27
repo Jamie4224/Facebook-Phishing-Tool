@@ -1,4 +1,4 @@
-#####Lastly i did not had time and possibilities to code cuz my computer broke. I had to buy and build a new one and now thats done i will continue on this project and i will try to bring out v2.0 as fast a as possible!
+#Lastly i did not had time and possibilities to code cuz my computer broke. I had to buy and build a new one and now thats done i will continue on this project and i will try to bring out v2.0 as fast a as possible!
 
 # Facebook-Phishing-Tool
 
