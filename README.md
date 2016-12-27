@@ -1,3 +1,5 @@
+#####Lastly i did not had time and possibilities to code cuz my computer broke. I had to buy and build a new one and now thats done i will continue on this project and i will try to bring out v2.0 as fast a as possible!
+
 # Facebook-Phishing-Tool
 
 Ever wanted to gather poeple's passwords? Now you can! Poeple can register and login here but their data will be saved in a MySQL database!
