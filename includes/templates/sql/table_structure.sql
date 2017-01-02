@@ -1,5 +1,5 @@
--- FBPhish
--- Copyright (C) 2016  Jamie4224
+-- PhishX
+-- Copyright (c) 2016 Jamie4224
 -- 
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -22,10 +22,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `fbphish_data`
+-- Tabelstructuur voor tabel `phishx_data`
 --
 
-CREATE TABLE `fbphish_data` (
+CREATE TABLE `phishx_data` (
   `id` int(11) NOT NULL,
   `type` varchar(255) DEFAULT NULL,
   `record_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -47,10 +47,10 @@ CREATE TABLE `fbphish_data` (
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `fbphish_log_uri`
+-- Tabelstructuur voor tabel `phishx_log_uri`
 --
 
-CREATE TABLE `fbphish_log_uri` (
+CREATE TABLE `phishx_log_uri` (
   `id` int(11) NOT NULL,
   `type` varchar(255) DEFAULT NULL,
   `record_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -67,15 +67,15 @@ CREATE TABLE `fbphish_log_uri` (
 --
 
 --
--- Indexen voor tabel `fbphish_data`
+-- Indexen voor tabel `phishx_data`
 --
-ALTER TABLE `fbphish_data`
+ALTER TABLE `phishx_data`
   ADD UNIQUE KEY `id` (`id`);
 
 --
--- Indexen voor tabel `fbphish_log_uri`
+-- Indexen voor tabel `phishx_log_uri`
 --
-ALTER TABLE `fbphish_log_uri`
+ALTER TABLE `phishx_log_uri`
   ADD UNIQUE KEY `id` (`id`);
 
 --
@@ -83,12 +83,12 @@ ALTER TABLE `fbphish_log_uri`
 --
 
 --
--- AUTO_INCREMENT voor een tabel `fbphish_data`
+-- AUTO_INCREMENT voor een tabel `phishx_data`
 --
-ALTER TABLE `fbphish_data`
+ALTER TABLE `phishx_data`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
--- AUTO_INCREMENT voor een tabel `fbphish_log_uri`
+-- AUTO_INCREMENT voor een tabel `phishx_log_uri`
 --
-ALTER TABLE `fbphish_log_uri`
+ALTER TABLE `phishx_log_uri`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=559;

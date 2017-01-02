@@ -1,6 +1,6 @@
 #Lastly i did not had time and possibilities to code cuz my computer broke. I had to buy and build a new one and now thats done i will continue on this project and i will try to bring out v2.0 as fast a as possible!
 
-# Facebook-Phishing-Tool
+# PhishX
 
 Ever wanted to gather poeple's passwords? Now you can! Poeple can register and login here but their data will be saved in a MySQL database!
 
@@ -49,7 +49,7 @@ Coming soon!
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
- Copyright (C) 2016 Jamie4224, Inc.
+ Copyright (C) 2016 Jamie4224, PhishX.
  Everyone is permitted to copy and distribute verbatim copies
  of this license document, but changing it is not allowed.
 

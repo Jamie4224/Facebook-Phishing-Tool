@@ -1,7 +1,7 @@
 <?php
 /*
-FBPhish
-Copyright (C) 2016  Jamie4224
+PhishX
+Copyright (c) 2016 Jamie4224
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

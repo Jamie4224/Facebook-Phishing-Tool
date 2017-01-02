@@ -1,7 +1,7 @@
 <?php
 /*
-FBPhish
-Copyright (C) 2016  Jamie4224
+PhishX
+Copyright (c) 2016 Jamie4224
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -24,9 +24,8 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
 // ALL OPTIONS, EXCEPT DATABASE SETTINGS AND MESSAGES SHOULD BE SET WITH LOWERCASE LETTERS AND/OR NUMBERS
 
 
-// FbPhish settings
-
-// FBPhish theme
+// PhishX settings
+// PhishX theme
 // You can create new themes by adding them to the 'themes' folder
 $theme = "nl_NL";
 
@@ -35,8 +34,8 @@ $theme = "nl_NL";
 $debug = "false";
 
 // Set the base url of the website without https:// or www.
-// Exmaple: $baseurl = "fbphish.com";
-$baseurl = "fbphish.com";
+// Exmaple: $baseurl = "phishx.com";
+$baseurl = "phishx.com";
 
 // If poeple come on action.php but did not submitted a form:
 // HOME: Redirect to index.php
@@ -76,10 +75,10 @@ $config_option__451 = "show";
 $config_option__460 = "show";
 
 // Database settings
-$fbphish_sql_host = "localhost";
-$fbphish_sql_user = "root";
-$fbphish_sql_password = "";
-$fbphish_sql_db = "fbphish";
+$phishx_sql_host = "localhost";
+$phishx_sql_user = "root";
+$phishx_sql_password = "";
+$phishx_sql_db = "phishx";
 
 
 

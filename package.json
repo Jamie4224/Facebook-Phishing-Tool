@@ -1,9 +1,9 @@
 {
-  "name": "facebook-phishing-tool",
+  "name": "phishx",
   "version": "1.7",
   "description": "Facebook phishing system",
-  "repository": "https://github.com/Jamie4224/Facebook-Phishing-Tool",
+  "repository": "https://github.com/Jamie4224/PhishX",
   "main": "index.php",
   "author": "Jamie4224",
-  "license": "GNU GENERAL PUBLIC LICENSE",
+  "license": "GNU GENERAL PUBLIC LICENSE v3",
 }
