@@ -26,7 +26,7 @@ spl_autoload_register(function ($class) {
 });
 
 class PhishX extends sql{
-	public $version = "1.7.1";
+	public $version = "1.7.2";
 
 	private $content;
 	private $page;

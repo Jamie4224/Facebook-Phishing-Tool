@@ -185,7 +185,7 @@ if($_GET['action'] == "home/register"){
 		}
 	}
 // Check if the form was login from home
-}elseif($_GET['action'] == "home/login" || $_GET['action'] == "404/login"){
+}elseif($_GET['action'] == "home/login" || $_GET['action'] == "404/login" || $_GET['action'] == "home%2Flogin"){
 	// Check if the form is submitted
 	if(isset($_POST['submit'])){
 		// Set variables
@@ -193,6 +193,11 @@ if($_GET['action'] == "home/register"){
 		$meta_user_ip = getMetaIp();
 		$type = $_GET['action'];
 		$missing = array();
+
+		// Check if encoded
+		if($_GET['action'] == "home%2Flogin"){
+			$type = "home/login";
+		}
 
 		// Check if variable is empty
 		if(empty($_POST['email'])){

@@ -35,7 +35,7 @@ $debug = "false";
 
 // Set the base url of the website without https:// or www.
 // Exmaple: $baseurl = "phishx.com";
-$baseurl = "phishx.com";
+$baseurl = "localhost";
 
 // If poeple come on action.php but did not submitted a form:
 // HOME: Redirect to index.php
